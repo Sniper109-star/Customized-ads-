@@ -24,7 +24,7 @@ export function Tabs({ defaultValue, className, children }: TabsProps) {
 
 interface TabsListProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-Tabs.List = function TabsList({ className, ...props }: TabsListProps) {
+export function TabsList({ className, ...props }: TabsListProps) {
   return (
     <div
       role="tablist"
@@ -32,13 +32,13 @@ Tabs.List = function TabsList({ className, ...props }: TabsListProps) {
       {...props}
     />
   );
-};
+}
 
 interface TabsTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   value: string;
 }
 
-Tabs.Trigger = function TabsTrigger({ className, value, ...props }: TabsTriggerProps) {
+export function TabsTrigger({ className, value, ...props }: TabsTriggerProps) {
   const ctx = React.useContext(TabsContext);
   const isActive = ctx.value === value;
   return (
@@ -55,13 +55,13 @@ Tabs.Trigger = function TabsTrigger({ className, value, ...props }: TabsTriggerP
       {...props}
     />
   );
-};
+}
 
 interface TabsContentProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
 }
 
-Tabs.Content = function TabsContent({ className, value, ...props }: TabsContentProps) {
+export function TabsContent({ className, value, ...props }: TabsContentProps) {
   const ctx = React.useContext(TabsContext);
   if (ctx.value !== value) return null;
   return (
@@ -71,4 +71,4 @@ Tabs.Content = function TabsContent({ className, value, ...props }: TabsContentP
       {...props}
     />
   );
-};
+}

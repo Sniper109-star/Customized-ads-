@@ -11,6 +11,7 @@ import {
   Settings,
   ArrowRight,
   BarChart3,
+  Cpu,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -19,6 +20,7 @@ const nav = [
   { href: "/dashboard/campaigns", label: "Campaigns", icon: Megaphone },
   { href: "/dashboard/ads", label: "Ads", icon: Image },
   { href: "/dashboard/integrations", label: "Integrations", icon: Plug },
+  { href: "/dashboard/engine", label: "Engine", icon: Cpu },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
