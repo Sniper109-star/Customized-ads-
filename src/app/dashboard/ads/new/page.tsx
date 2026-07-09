@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectItem, SelectValue } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
 
 const AD_TYPES = ["Image", "Video", "Story"];
 const PLATFORMS = ["Facebook", "TikTok", "Both"];
@@ -32,14 +33,15 @@ export default function NewAdPage() {
   return (
     <DashboardShell>
       <div className="mx-auto max-w-2xl">
-        <Card>
+        <Card className="border-border/70">
           <CardHeader>
             <CardTitle>New ad</CardTitle>
             <CardDescription>Create a new ad creative and attach it to a campaign.</CardDescription>
           </CardHeader>
-          <CardContent>
+          <Separator />
+          <CardContent className="pt-6">
             <form
-              className="space-y-4"
+              className="space-y-5"
               onSubmit={(e) => {
                 e.preventDefault();
                 router.push("/dashboard/ads");
@@ -102,13 +104,13 @@ export default function NewAdPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="cta">Call to action</Label>
-                  <Select value={form.cta} onValueChange={(value) => update("cta", value)} placeholder="Select CTA">
-                    <SelectItem value="Shop Now">Shop Now</SelectItem>
-                    <SelectItem value="Sign Up">Sign Up</SelectItem>
-                    <SelectItem value="Learn More">Learn More</SelectItem>
-                    <SelectItem value="Get Offer">Get Offer</SelectItem>
-                  </Select>
+                <Label>Call to action</Label>
+                <Select value={form.cta} onValueChange={(value) => update("cta", value)} placeholder="Select CTA">
+                  <SelectItem value="Shop Now">Shop Now</SelectItem>
+                  <SelectItem value="Sign Up">Sign Up</SelectItem>
+                  <SelectItem value="Learn More">Learn More</SelectItem>
+                  <SelectItem value="Get Offer">Get Offer</SelectItem>
+                </Select>
               </div>
 
               <div className="space-y-2">
@@ -121,6 +123,8 @@ export default function NewAdPage() {
                   required
                 />
               </div>
+
+              <Separator />
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-2">

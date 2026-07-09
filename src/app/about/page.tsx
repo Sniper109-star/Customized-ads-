@@ -3,31 +3,44 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <div className="container mx-auto max-w-screen-2xl px-4 py-8">
-      <div className="mx-auto max-w-3xl space-y-6">
-        <h1 className="text-4xl font-bold tracking-tight">About</h1>
-        <p className="text-xl text-muted-foreground">
-          This is a modern Next.js starter template designed for AI-assisted development.
+    <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
+      <div className="mx-auto max-w-2xl space-y-8">
+        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">About</h1>
+        <p className="text-muted-foreground">
+          This platform helps small teams manage ads across Facebook and TikTok without switching
+          between multiple tools. It combines campaign planning, creative management, and platform
+          integrations into one workflow.
         </p>
-        <div className="space-y-4">
-          <p>
-            It provides a clean foundation that can be extended to build any type of web
-            application through interaction with an AI assistant.
-          </p>
-          <h2 className="text-2xl font-semibold tracking-tight">Features</h2>
-          <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
-            <li>Next.js 16 with App Router</li>
-            <li>TypeScript for type safety</li>
-            <li>Tailwind CSS 4 for styling</li>
-            <li>ESLint for code quality</li>
-            <li>Prettier for formatting</li>
-            <li>Standard component library</li>
-          </ul>
-          <div className="flex gap-4 pt-4">
-            <Button asChild>
-              <Link href="/">Back to Home</Link>
-            </Button>
+        <div className="grid gap-3 md:grid-cols-2">
+          <div className="rounded-xl border border-border/70 bg-background p-6 shadow-sm">
+            <h2 className="text-lg font-semibold">Campaigns</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Define budgets, objectives, schedules, and ownership in one place.
+            </p>
           </div>
+          <div className="rounded-xl border border-border/70 bg-background p-6 shadow-sm">
+            <h2 className="text-lg font-semibold">Ads</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Create headlines, body copy, CTAs, images, and videos for multiple formats.
+            </p>
+          </div>
+          <div className="rounded-xl border border-border/70 bg-background p-6 shadow-sm">
+            <h2 className="text-lg font-semibold">Integrations</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Connect Facebook Ads and TikTok Ads to publish and sync performance data.
+            </p>
+          </div>
+          <div className="rounded-xl border border-border/70 bg-background p-6 shadow-sm">
+            <h2 className="text-lg font-semibold">Engine</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Background job system for sync, insights, publishing, and optimization.
+            </p>
+          </div>
+        </div>
+        <div>
+          <Button asChild>
+            <Link href="/">Back to Home</Link>
+          </Button>
         </div>
       </div>
     </div>

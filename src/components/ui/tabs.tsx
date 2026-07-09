@@ -28,7 +28,7 @@ export function TabsList({ className, ...props }: TabsListProps) {
   return (
     <div
       role="tablist"
-      className={cn("inline-flex items-center rounded-md border border-border bg-muted p-1 text-sm", className)}
+      className={cn("inline-flex items-center rounded-md border border-border/70 bg-muted/60 p-1 text-sm", className)}
       {...props}
     />
   );
@@ -47,7 +47,7 @@ export function TabsTrigger({ className, value, ...props }: TabsTriggerProps) {
       aria-selected={isActive}
       data-state={isActive ? "active" : "inactive"}
       className={cn(
-        "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm transition-all",
+        "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm transition-colors",
         isActive ? "bg-background text-foreground shadow-sm" : "text-muted-foreground",
         className
       )}
@@ -67,7 +67,7 @@ export function TabsContent({ className, value, ...props }: TabsContentProps) {
   return (
     <div
       role="tabpanel"
-      className={cn("mt-2 focus-visible:outline-none", className)}
+      className={cn("mt-4 focus-visible:outline-none", className)}
       {...props}
     />
   );

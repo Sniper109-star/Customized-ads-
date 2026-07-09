@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import { integrations as demoIntegrations } from "@/lib/demo-data";
 
 export default function IntegrationsPage() {
@@ -24,18 +25,19 @@ export default function IntegrationsPage() {
   return (
     <DashboardShell>
       <div className="space-y-6">
-        <div>
+        <div className="space-y-1">
           <h1 className="text-2xl font-semibold tracking-tight">Integrations</h1>
           <p className="text-sm text-muted-foreground">Connect ad accounts for Facebook Ads and TikTok Ads.</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <Card>
+          <Card className="border-border/70">
             <CardHeader>
               <CardTitle>Facebook Ads</CardTitle>
               <CardDescription>Connect a Facebook ad account to publish ads and insights.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <Separator />
+            <CardContent className="space-y-4 pt-6">
               <div className="space-y-2">
                 <Label htmlFor="fb-token">Access token</Label>
                 <Input
@@ -52,24 +54,25 @@ export default function IntegrationsPage() {
                 Save Facebook token
               </Button>
               <div className="space-y-2 text-sm text-muted-foreground">
-            {items
-              .filter((item) => item.id === "facebook")
-              .map((item) => (
-                <div key={item.id} className="flex items-center justify-between rounded-md border border-border/60 bg-background/70 px-3 py-2">
-                  <span>{item.name}</span>
-                  <span className={`h-2 w-2 rounded-full ${item.status === "connected" ? "bg-emerald-500" : "bg-muted-foreground"}`} />
-                </div>
-              ))}
+                {items
+                  .filter((item) => item.id === "facebook")
+                  .map((item) => (
+                    <div key={item.id} className="flex items-center justify-between rounded-md border border-border/60 bg-background/70 px-3 py-2">
+                      <span>{item.name}</span>
+                      <span className={`h-2 w-2 rounded-full ${item.status === "connected" ? "bg-emerald-600" : "bg-muted-foreground"}`} />
+                    </div>
+                  ))}
               </div>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-border/70">
             <CardHeader>
               <CardTitle>TikTok Ads</CardTitle>
               <CardDescription>Connect a TikTok Ads account to publish ads and insights.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <Separator />
+            <CardContent className="space-y-4 pt-6">
               <div className="space-y-2">
                 <Label htmlFor="tt-token">Access token</Label>
                 <Input
@@ -91,7 +94,7 @@ export default function IntegrationsPage() {
                   .map((item) => (
                     <div key={item.id} className="flex items-center justify-between rounded-md border border-border/60 bg-background/70 px-3 py-2">
                       <span>{item.name}</span>
-                      <span className={`h-2 w-2 rounded-full ${item.status === "connected" ? "bg-emerald-500" : "bg-muted-foreground"}`} />
+                      <span className={`h-2 w-2 rounded-full ${item.status === "connected" ? "bg-emerald-600" : "bg-muted-foreground"}`} />
                     </div>
                   ))}
               </div>

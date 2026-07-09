@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Spinner } from "@/components/ui/spinner";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Separator } from "@/components/ui/separator";
 
 interface EngineStatusData {
   status: {
@@ -27,6 +28,8 @@ interface EngineStatusData {
     error?: string;
   }>;
 }
+
+import { Button } from "@/components/ui/button";
 
 export default function EnginePage() {
   const [data, setData] = useState<EngineStatusData | null>(null);
@@ -71,25 +74,25 @@ export default function EnginePage() {
     <DashboardShell>
       <div className="space-y-6">
         <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-          <div>
+          <div className="space-y-1">
             <h1 className="text-2xl font-semibold tracking-tight">Engine</h1>
             <p className="text-sm text-muted-foreground">Background jobs, platform sync, and automation.</p>
           </div>
           <div className="flex gap-2">
-            <button
+            <Button
               type="button"
               onClick={() => triggerJob("sync_facebook")}
-              className="inline-flex items-center justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700"
+              className="bg-[#1877F2] text-white hover:bg-[#166fe5]"
             >
               Sync Facebook
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
               onClick={() => triggerJob("sync_tiktok")}
-              className="inline-flex items-center justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-pink-700"
+              className="bg-[#010101] text-white hover:bg-neutral-800"
             >
               Sync TikTok
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -101,38 +104,29 @@ export default function EnginePage() {
         )}
 
         <div className="grid gap-4 md:grid-cols-4">
-          <Card>
-            <CardHeader>
-              <CardDescription>Queued</CardDescription>
-              <CardTitle>{data?.stats.queued ?? 0}</CardTitle>
-            </CardHeader>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardDescription>Running</CardDescription>
-              <CardTitle>{data?.stats.running ?? 0}</CardTitle>
-            </CardHeader>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardDescription>Completed</CardDescription>
-              <CardTitle>{data?.stats.completed ?? 0}</CardTitle>
-            </CardHeader>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardDescription>Failed</CardDescription>
-              <CardTitle>{data?.stats.failed ?? 0}</CardTitle>
-            </CardHeader>
-          </Card>
+          {[
+            { label: "Queued", value: data?.stats.queued ?? 0, description: "Waiting" },
+            { label: "Running", value: data?.stats.running ?? 0, description: "In progress" },
+            { label: "Completed", value: data?.stats.completed ?? 0, description: "Finished" },
+            { label: "Failed", value: data?.stats.failed ?? 0, description: "Needs attention" },
+          ].map((item) => (
+            <Card key={item.label} className="border-border/70">
+              <CardHeader className="pb-2">
+                <CardDescription>{item.label}</CardDescription>
+                <div className="text-2xl font-semibold">{item.value}</div>
+                <p className="text-xs text-muted-foreground">{item.description}</p>
+              </CardHeader>
+            </Card>
+          ))}
         </div>
 
-        <Card>
+        <Card className="border-border/70">
           <CardHeader>
             <CardTitle>Job Status</CardTitle>
             <CardDescription>Recent engine jobs and platform syncs</CardDescription>
           </CardHeader>
-          <CardContent>
+          <Separator />
+          <CardContent className="pt-6">
             {loading ? (
               <div className="flex items-center gap-2">
                 <Spinner size="sm" />
@@ -179,7 +173,7 @@ function JobList({ jobs }: { jobs: EngineStatusData["jobs"] }) {
   return jobs.map((job) => (
     <div
       key={job.id}
-      className="flex items-center justify-between rounded-md border border-border/60 bg-background/70 px-3 py-2"
+      className="flex items-center justify-between rounded-lg border border-border/60 bg-background/70 px-4 py-3"
     >
       <div className="space-y-1">
         <p className="text-sm font-medium">{job.type}</p>

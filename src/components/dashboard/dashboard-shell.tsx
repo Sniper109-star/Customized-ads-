@@ -30,11 +30,11 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background">
       <div className="grid min-h-screen grid-cols-1 md:grid-cols-[220px_1fr]">
-        <aside className="hidden border-r border-border/60 bg-background/60 md:block">
+        <aside className="hidden border-r border-border/60 bg-background md:block">
           <div className="flex h-full flex-col">
-            <div className="h-14 border-b border-border/60 px-4">
+            <div className="flex h-14 items-center border-b border-border/60 px-4">
               <Link href="/dashboard" className="flex items-center gap-2 text-sm font-semibold">
-                <BarChart3 className="h-4 w-4 text-primary" />
+                <BarChart3 className="h-4 w-4" />
                 <span>Ad Control</span>
               </Link>
             </div>
@@ -47,10 +47,10 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      "flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors",
+                      "flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors",
                       active
-                        ? "bg-primary/10 text-primary"
-                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                        ? "bg-muted text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     )}
                   >
                     <Icon className="h-4 w-4" />
@@ -69,7 +69,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         </aside>
-        <main className="min-h-[calc(100vh-56px)]">
+        <main>
           <div className="mx-auto w-full max-w-6xl px-4 py-6 md:py-10">{children}</div>
         </main>
       </div>

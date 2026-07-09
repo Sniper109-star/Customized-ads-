@@ -36,11 +36,15 @@ export function RegisterForm() {
 
   return (
     <form onSubmit={submit} className="space-y-4">
-      {error && <p className="text-sm text-destructive">{error}</p>}
+      {error && (
+        <div className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+          {error}
+        </div>
+      )}
       <div className="space-y-2">
         <label className="text-sm font-medium">Name</label>
         <input
-          className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm"
+          className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -49,7 +53,7 @@ export function RegisterForm() {
       <div className="space-y-2">
         <label className="text-sm font-medium">Email</label>
         <input
-          className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm"
+          className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -59,7 +63,7 @@ export function RegisterForm() {
       <div className="space-y-2">
         <label className="text-sm font-medium">Password</label>
         <input
-          className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm"
+          className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -71,7 +75,7 @@ export function RegisterForm() {
       </Button>
       <p className="text-center text-sm text-muted-foreground">
         Already have an account?{" "}
-        <Link href="/login" className="text-primary">
+        <Link href="/login" className="text-foreground underline underline-offset-4">
           Sign in
         </Link>
       </p>

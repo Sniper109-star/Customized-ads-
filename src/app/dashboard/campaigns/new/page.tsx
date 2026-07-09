@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectItem } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
 
 const OBJECTIVES = ["Awareness", "Traffic", "Conversions", "App Installs", "Lead Generation"];
 const PLATFORMS = ["Facebook", "TikTok"];
@@ -28,14 +29,15 @@ export default function NewCampaignPage() {
   return (
     <DashboardShell>
       <div className="mx-auto max-w-2xl">
-        <Card>
+        <Card className="border-border/70">
           <CardHeader>
             <CardTitle>New campaign</CardTitle>
             <CardDescription>Create a new campaign and attach it to an ad account.</CardDescription>
           </CardHeader>
-          <CardContent>
+          <Separator />
+          <CardContent className="pt-6">
             <form
-              className="space-y-4"
+              className="space-y-5"
               onSubmit={(e) => {
                 e.preventDefault();
                 router.push("/dashboard/campaigns");
@@ -99,6 +101,8 @@ export default function NewCampaignPage() {
                   </Select>
                 </div>
               </div>
+
+              <Separator />
 
               <div className="flex items-center justify-between">
                 <Button type="button" variant="ghost" onClick={() => router.back()}>

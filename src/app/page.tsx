@@ -4,15 +4,15 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative">
       <section className="border-b border-border/60 bg-background">
-        <div className="container mx-auto max-w-screen-2xl px-4 py-24 md:py-32">
-          <div className="mx-auto max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/80 px-3 py-1 text-xs font-medium text-muted-foreground">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+        <div className="mx-auto max-w-6xl px-4 py-24 md:py-32">
+          <div className="mx-auto max-w-2xl space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-muted/60 px-3 py-1 text-xs font-medium text-muted-foreground">
+              <span className="h-2 w-2 rounded-full bg-emerald-600" />
               Multi-platform ad manager
             </div>
-            <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
+            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
               Run ads on Facebook and TikTok from one place
             </h1>
             <p className="text-lg text-muted-foreground md:text-xl">
@@ -31,10 +31,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-border/60">
-        <div className="container mx-auto max-w-screen-2xl px-4 py-16 md:py-20">
+      <section className="border-b border-border/60 bg-background">
+        <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Built for ad operators</h2>
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Built for ad operators</h2>
             <p className="mt-3 text-muted-foreground">
               Launch faster, edit creatives quicker, and use one view to compare platform results.
             </p>
@@ -90,9 +90,9 @@ export default function Home() {
       </section>
 
       <section className="bg-background">
-        <div className="container mx-auto max-w-screen-2xl px-4 py-16 md:py-20">
-          <div className="mx-auto max-w-3xl">
-            <Card className="border-primary/20 bg-primary/5">
+        <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
+          <div className="mx-auto max-w-2xl">
+            <Card className="border border-border/70">
               <CardHeader>
                 <CardTitle>Ready to launch?</CardTitle>
                 <CardDescription>
