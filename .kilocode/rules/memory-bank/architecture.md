@@ -8,11 +8,24 @@ src/
 │   ├── layout.tsx          # Root layout + metadata
 │   ├── page.tsx            # Home page
 │   ├── globals.css         # Tailwind imports + global styles
-│   └── favicon.ico         # Site icon
-└── (expand as needed)
-    ├── components/         # React components (add when needed)
-    ├── lib/                # Utilities and helpers (add when needed)
-    └── db/                 # Database files (add via recipe)
+│   ├── about/              # About route
+│   │   └── page.tsx
+│   └── api/                # API routes
+│       └── health/
+│           └── route.ts
+├── components/             # React components
+│   ├── ui/                 # Reusable UI components (Button, Card)
+│   │   ├── button.tsx
+│   │   └── card.tsx
+│   ├── layout/             # Layout components (Header, Footer)
+│   │   ├── header.tsx
+│   │   └── footer.tsx
+│   └── providers.tsx       # Client providers wrapper
+├── lib/                    # Utilities and helpers
+│   ├── utils.ts
+│   └── constants.ts
+└── types/                  # TypeScript type definitions
+    └── index.ts
 ```
 
 ## Key Design Patterns

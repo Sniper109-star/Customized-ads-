@@ -59,7 +59,12 @@ bun typecheck      # Run TypeScript type checking
 {
   "next": "^16.1.3", // Framework
   "react": "^19.2.3", // UI library
-  "react-dom": "^19.2.3" // React DOM
+  "react-dom": "^19.2.3", // React DOM
+  "class-variance-authority": "^0.7.1", // Component variants
+  "clsx": "^2.1.1", // Class name utility
+  "tailwind-merge": "^3.6.0", // Tailwind class merging
+  "lucide-react": "^0.468.0", // Icons
+  "@radix-ui/react-slot": "^1.3.0" // asChild pattern
 }
 ```
 
@@ -74,7 +79,8 @@ bun typecheck      # Run TypeScript type checking
   "@tailwindcss/postcss": "^4.1.17",
   "tailwindcss": "^4.1.17",
   "eslint": "^9.39.1",
-  "eslint-config-next": "^16.0.0"
+  "eslint-config-next": "^16.0.0",
+  "prettier": "^3.9.4"
 }
 ```
 
